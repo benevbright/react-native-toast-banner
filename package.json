@@ -16,5 +16,18 @@
     "notification"
   ],
   "author": "Bright Lee",
-  "license": "ISC"
+  "license": "ISC",
+  "peerDependencies": {
+    "react": ">=16.8",
+    "react-native": ">=0.59",
+    "react-native-safe-area-context": "*",
+    "react-native-safe-area-view": "*"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "react": "16.9.0",
+    "react-native": "0.61.5",
+    "react-native-safe-area-context": "^0.6.1",
+    "react-native-safe-area-view": "^1.0.0"
+  }
 }
