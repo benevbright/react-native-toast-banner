@@ -1,0 +1,20 @@
+{
+  "name": "react-native-toast-banner",
+  "version": "1.0.0",
+  "description": "An animating banner fully based on Javascript",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benevbright/react-native-toast-banner.git"
+  },
+  "keywords": [
+    "react-native",
+    "banner",
+    "toast",
+    "react",
+    "notification"
+  ],
+  "author": "Bright Lee",
+  "license": "ISC"
+}
