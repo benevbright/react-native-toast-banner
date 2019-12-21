@@ -17,7 +17,8 @@
     "react-native-safe-area-view": "^1.0.0",
     "react-navigation": "^4.0.10",
     "react-navigation-stack": "^1.10.3",
-    "react-navigation-tabs": "^2.6.2"
+    "react-navigation-tabs": "^2.6.2",
+    "react-native-toast-banner": "../"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
