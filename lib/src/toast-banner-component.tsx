@@ -11,8 +11,9 @@ import {
 } from "react-native";
 import SafeAreaView from "react-native-safe-area-view";
 
-const NAV_HEIGHT = Platform.OS === "ios" ? 44 : 56;
+const DEFAULT_NAV_HEIGHT = Platform.OS === "ios" ? 44 : 56;
 const HEIGHT_NOTCH_SAFE = 100;
+const DEFAULT_DURATION = 3000;
 
 type NotchSafeDummyViewProps = {
   bannerHeight: number;
@@ -37,6 +38,10 @@ const NotchSafeDummyView = ({
 type Props = {
   onPress: () => void;
   onPostHide: (isMounted: boolean) => void;
+  duration?: number;
+  contentView: React.ReactNode;
+  backgroundColor?: string;
+  height?: number;
 };
 
 class ToastBanner extends React.Component<Props> {
@@ -48,7 +53,8 @@ class ToastBanner extends React.Component<Props> {
     this.isBannerMounted = false;
   }
 
-  getHeight = () => NAV_HEIGHT;
+  getHeight = () =>
+    this.props.height === undefined ? DEFAULT_NAV_HEIGHT : this.props.height;
   isBannerMounted: boolean = true;
   translateY = new Animated.Value(-(this.getHeight() + HEIGHT_NOTCH_SAFE));
 
@@ -59,7 +65,12 @@ class ToastBanner extends React.Component<Props> {
       useNativeDriver: true,
       easing: Easing.elastic(1.1)
     }).start(() => {
-      setTimeout(this.hide, 3000);
+      setTimeout(
+        this.hide,
+        this.props.duration === undefined
+          ? DEFAULT_DURATION
+          : this.props.duration
+      );
     });
   };
 
@@ -73,7 +84,7 @@ class ToastBanner extends React.Component<Props> {
   };
 
   render() {
-    const { onPress } = this.props;
+    const { onPress, contentView, backgroundColor } = this.props;
 
     return (
       <SafeAreaView
@@ -87,7 +98,8 @@ class ToastBanner extends React.Component<Props> {
           style={{
             width: "100%",
             height: "100%",
-            transform: [{ translateY: this.translateY }]
+            transform: [{ translateY: this.translateY }],
+            backgroundColor
           }}
         >
           <TouchableOpacity
@@ -95,19 +107,11 @@ class ToastBanner extends React.Component<Props> {
             onPress={onPress}
             style={{ width: "100%", height: "100%" }}
           >
-            <NotchSafeDummyView bannerHeight={this.getHeight()} color={"red"} />
-            <View
-              style={{
-                flex: 1,
-                backgroundColor: "purple",
-                alignItems: "center",
-                flexDirection: "row",
-                justifyContent: "space-between",
-                paddingHorizontal: 20
-              }}
-            >
-              <Text>Hello banner</Text>
-            </View>
+            <NotchSafeDummyView
+              bannerHeight={this.getHeight()}
+              color={backgroundColor}
+            />
+            {contentView}
           </TouchableOpacity>
         </Animated.View>
       </SafeAreaView>

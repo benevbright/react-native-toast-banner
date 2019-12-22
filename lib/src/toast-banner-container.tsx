@@ -4,6 +4,10 @@ import { ToastBanner } from "./toast-banner-component";
 
 type BannerConfig = {
   onPress?: Function;
+  duration?: number;
+  contentView: React.ReactNode;
+  backgroundColor?: string;
+  height?: number;
 };
 type BannerConfigWithKey = BannerConfig & { key: string | null };
 
@@ -21,6 +25,7 @@ type Props = {
 };
 
 const ToastBannerProvider = ({ children }: Props) => {
+  // @ts-ignore
   const [bannerConfig, setBannerConfig] = React.useState<BannerConfigWithKey>({
     key: null
   });

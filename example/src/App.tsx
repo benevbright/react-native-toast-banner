@@ -9,11 +9,15 @@ import {
   withToastBannerToggler,
   WithToastBannerTogglerProps,
 } from 'react-native-toast-banner';
+import {RegularBanner} from './banners';
 
 const bannersList = [
   {
     buttonTitle: 'Regular banner',
-    config: {},
+    bannerConfig: {
+      contentView: <RegularBanner />,
+      backgroundColor: 'red',
+    },
   },
 ];
 
@@ -23,7 +27,7 @@ const HomeScreen = ({showBanner}: WithToastBannerTogglerProps) => (
       <Text
         style={{marginVertical: 10}}
         key={i.toString()}
-        onPress={() => showBanner(banner.config)}>
+        onPress={() => showBanner(banner.bannerConfig)}>
         {banner.buttonTitle}
       </Text>
     ))}
