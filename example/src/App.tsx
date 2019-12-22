@@ -10,14 +10,23 @@ import {
   WithToastBannerTogglerProps,
 } from 'react-native-toast-banner';
 
+const bannersList = [
+  {
+    buttonTitle: 'Regular banner',
+    config: {},
+  },
+];
+
 const HomeScreen = ({showBanner}: WithToastBannerTogglerProps) => (
   <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-    <Text
-      onPress={() => {
-        showBanner({});
-      }}>
-      Home Screen
-    </Text>
+    {bannersList.map((banner, i) => (
+      <Text
+        style={{marginVertical: 10}}
+        key={i.toString()}
+        onPress={() => showBanner(banner.config)}>
+        {banner.buttonTitle}
+      </Text>
+    ))}
   </View>
 );
 

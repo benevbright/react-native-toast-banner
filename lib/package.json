@@ -21,7 +21,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "build-publish": "yarn build && yarn publish"
+    "build-publish": "rm -rf lib && yarn build && yarn publish"
   },
   "peerDependencies": {
     "react": ">=16.8",
