@@ -18,7 +18,7 @@
     "react-navigation": "^4.0.10",
     "react-navigation-stack": "^1.10.3",
     "react-navigation-tabs": "^2.6.2",
-    "react-native-toast-banner": "../"
+    "react-native-toast-banner": "1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
