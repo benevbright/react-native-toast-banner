@@ -9,7 +9,7 @@ import {
   withToastBannerToggler,
   WithToastBannerTogglerProps,
 } from 'react-native-toast-banner';
-import {RegularBanner} from './banners';
+import {RegularBanner, BigBanner, Toast} from './banners';
 
 const bannersList = [
   {
@@ -19,10 +19,23 @@ const bannersList = [
       backgroundColor: 'red',
     },
   },
+  {
+    buttonTitle: 'Big banner',
+    bannerConfig: {
+      contentView: <BigBanner />,
+      backgroundColor: 'blue',
+    },
+  },
+  {
+    buttonTitle: 'Toast',
+    bannerConfig: {
+      contentView: <Toast />,
+    },
+  },
 ];
 
 const HomeScreen = ({showBanner}: WithToastBannerTogglerProps) => (
-  <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+  <View style={{flex: 1, alignItems: 'center', top: 100}}>
     {bannersList.map((banner, i) => (
       <Text
         style={{marginVertical: 10}}
