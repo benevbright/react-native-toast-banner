@@ -16,7 +16,7 @@
     "react-native-reanimated": "^1.4.0",
     "react-native-safe-area-context": "^0.6.1",
     "react-native-safe-area-view": "^1.0.0",
-    "react-native-toast-banner": "^0.1.1",
+    "react-native-toast-banner": "^0.2.0",
     "react-navigation": "^4.0.10",
     "react-navigation-stack": "^1.10.3",
     "react-navigation-tabs": "^2.6.2"

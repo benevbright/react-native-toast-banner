@@ -1043,9 +1043,9 @@
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
 
 "@types/react-native@^0.60.25":
-  version "0.60.25"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.60.25.tgz#65cb0bf5dd0631079215b63525458e4123c1c90e"
-  integrity sha512-827dIVvSTxSH5uTpsJJH7O4wpRuw0rm3yIzRL3a2yKawA0nyhgC1GPKTXHFIn2GfSdXn1Gty2dJ+k6uDZF3MWQ==
+  version "0.60.26"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.60.26.tgz#cfbb02c39cd162240d59f4922b5bdeb0c212f90d"
+  integrity sha512-M2ZE5/65Z+cmnP0hz/ImsR4eeqgHenLPWIxhJiaWsTuIMYlTfOxSIqkJQ0SFm4BdklxDS1aaH4+3d8ve+0LHMQ==
   dependencies:
     "@types/prop-types" "*"
     "@types/react" "*"
@@ -5219,10 +5219,10 @@ react-native-tab-view@^2.11.0:
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-2.11.0.tgz#2e57d1f617ccc88c7f452708804f3409f880b700"
   integrity sha512-vqetlxGO7A8bnqvXcB50MWpRZAImXFrDGz1WCQKdCqe03Ey3ZzENe7yLuWrtBJYlepGfOLAsmCXv+wW82Yfm1w==
 
-react-native-toast-banner@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/react-native-toast-banner/-/react-native-toast-banner-0.1.1.tgz#a301cd06a58dbce3d3f3dba7964c6d68aab98839"
-  integrity sha512-9Y5oVG+n57CDnP4uzlzIzowlOPpVIJa2GDx2xV8ubBJQTmkCZTgC9PmQcZ6NP5uHwLdd8PspM+rdac5M9AB/uw==
+react-native-toast-banner@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-toast-banner/-/react-native-toast-banner-0.2.0.tgz#590bf80195b57f6f17072635d97a6ef0cfb2cb93"
+  integrity sha512-52fDn3QyETBr9ELGwl4urfZFEYVmfPV0b5ipW8GZskEqd//UQvxdl0j6tBJOhC4jzKLuh51kWHqrFUZdy9q5zQ==
 
 react-native@0.61.5:
   version "0.61.5"
