@@ -31,6 +31,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "react-native-safe-area-view": "^1.0.0",
     "@types/react": "^16.9.17",
     "@types/react-native": "^0.60.25",
     "typescript": "^3.7.4"
