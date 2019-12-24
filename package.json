@@ -21,9 +21,10 @@
     "lib"
   ],
   "scripts": {
-    "build": "tsc",
-    "build-publish": "rm -rf lib && yarn build && yarn publish",
-    "run-prettier": "prettier --write package.json README.md index.ts src/*"
+    "run-prettier": "prettier --write package.json README.md index.ts src/*",
+    "flowgen": "flowgen lib/index.d.ts -o lib/index.js.flow && flowgen lib/src/toast-banner-component.d.ts -o lib/src/toast-banner-component.js.flow && flowgen lib/src/toast-banner-container.d.ts -o lib/src/toast-banner-container.js.flow",
+    "build": "tsc && yarn flowgen",
+    "build-publish": "rm -rf lib && yarn build && yarn publish"
   },
   "peerDependencies": {
     "react": ">=16.8",
