@@ -4,6 +4,8 @@ import React from 'react';
 import {View, Platform, TouchableOpacity, Animated, Easing} from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 
+import {Transition} from './types';
+
 const DEFAULT_NAV_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
 const HEIGHT_NOTCH_SAFE = 100;
 const DEFAULT_DURATION = 3000;
@@ -31,6 +33,7 @@ type Props = {
   duration?: number;
   contentView: React.ReactNode;
   backgroundColor?: string;
+  transitions: Transition[];
 };
 
 class ToastBanner extends React.Component<Props> {
@@ -39,25 +42,25 @@ class ToastBanner extends React.Component<Props> {
   }
 
   isBannerMounted: boolean = true;
-  translateY = new Animated.Value(-1000);
-  contentHeight?: number;
+  animation = new Animated.Value(-10);
+  contentHeight: number = 0;
 
   handleLayout = ({
     nativeEvent: {
       layout: {height},
     },
   }) => {
-    if (height !== 0 && this.contentHeight === undefined) {
+    if (height !== 0 && this.contentHeight === 0) {
       this.contentHeight = height;
-      this.translateY.setValue(-(height + HEIGHT_NOTCH_SAFE));
+      this.animation.setValue(0);
       this.show();
     }
   };
 
   show = () => {
-    Animated.timing(this.translateY, {
+    Animated.timing(this.animation, {
       duration: 300,
-      toValue: 0,
+      toValue: 1,
       useNativeDriver: true,
       easing: Easing.elastic(1.1),
     }).start(() => {
@@ -71,16 +74,31 @@ class ToastBanner extends React.Component<Props> {
   };
 
   hide = () => {
-    Animated.timing(this.translateY, {
+    Animated.timing(this.animation, {
       duration: 200,
-      toValue: -(this.contentHeight + HEIGHT_NOTCH_SAFE),
+      toValue: 0,
       useNativeDriver: true,
       easing: Easing.elastic(1),
     }).start(() => this.props.onPostHide(this.isBannerMounted));
   };
 
   render() {
-    const {onPress, contentView, backgroundColor} = this.props;
+    const {onPress, contentView, backgroundColor, transitions} = this.props;
+
+    const translateY = this.animation.interpolate({
+      inputRange: [-1, 0, 1],
+      outputRange: [
+        -1000,
+        transitions.includes(Transition.Move)
+          ? -(this.contentHeight + HEIGHT_NOTCH_SAFE)
+          : 0,
+        0,
+      ],
+    });
+    const opacity = this.animation.interpolate({
+      inputRange: [-1, 0, 1],
+      outputRange: [0, transitions.includes(Transition.FadeInOut) ? 0 : 1, 1],
+    });
 
     return (
       <SafeAreaView
@@ -92,7 +110,8 @@ class ToastBanner extends React.Component<Props> {
           style={{
             width: '100%',
             minHeight: DEFAULT_NAV_HEIGHT,
-            transform: [{translateY: this.translateY}],
+            transform: [{translateY}],
+            opacity,
             backgroundColor,
           }}>
           <TouchableOpacity

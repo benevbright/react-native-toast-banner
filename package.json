@@ -21,7 +21,8 @@
   ],
   "scripts": {
     "build": "tsc",
-    "build-publish": "rm -rf lib && yarn build && yarn publish"
+    "build-publish": "rm -rf lib && yarn build && yarn publish",
+    "prettier": "prettier --write package.json index.ts src/*"
   },
   "peerDependencies": {
     "react": ">=16.8",
