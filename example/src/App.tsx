@@ -6,8 +6,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {
   ToastBannerProvider,
   ToastBannerPresenter,
-  withToastBannerToggler,
-  WithToastBannerTogglerProps,
+  useToastBannerToggler,
 } from 'react-native-toast-banner';
 import {RegularBanner, BigBanner, Toast} from './banners';
 
@@ -34,22 +33,26 @@ const bannersList = [
   },
 ];
 
-const HomeScreen = ({showBanner}: WithToastBannerTogglerProps) => (
-  <View style={{flex: 1, alignItems: 'center', top: 100}}>
-    {bannersList.map((banner, i) => (
-      <Text
-        style={{marginVertical: 10}}
-        key={i.toString()}
-        onPress={() => showBanner(banner.bannerConfig)}>
-        {banner.buttonTitle}
-      </Text>
-    ))}
-  </View>
-);
+const HomeScreen = () => {
+  const {showBanner} = useToastBannerToggler();
+
+  return (
+    <View style={{flex: 1, alignItems: 'center', top: 100}}>
+      {bannersList.map((banner, i) => (
+        <Text
+          style={{marginVertical: 10}}
+          key={i.toString()}
+          onPress={() => showBanner(banner.bannerConfig)}>
+          {banner.buttonTitle}
+        </Text>
+      ))}
+    </View>
+  );
+};
 
 const AppNavigator = createStackNavigator({
   Home: {
-    screen: withToastBannerToggler(HomeScreen),
+    screen: HomeScreen,
     navigationOptions: {
       title: 'react-native-toast-banner',
     },
