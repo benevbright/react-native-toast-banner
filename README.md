@@ -13,6 +13,7 @@ import {
   ToastBannerProvider,
   ToastBannerPresenter,
   useToastBannerToggler /* or withToastBannerToggler */,
+  Transition,
 } from 'react-native-toast-banner';
 
 const MyScreen = () => {
@@ -24,6 +25,7 @@ const MyScreen = () => {
       contentView: <Text>Hello the regular banner!</Text>,
       backgroundColor: 'red' /* optional */,
       duration: 2000 /* optional */,
+      transitions: [Transition.Move, Transition.FadeInOut] /* optional */,
     });
   };
   return <Text onPress={onPress}>Show Banner</Text>;
