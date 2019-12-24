@@ -1,5 +1,7 @@
 # react-native-toast-banner
 
+[![npm](https://img.shields.io/npm/v/react-native-toast-banner.svg)](https://www.npmjs.com/package/react-native-toast-banner) [![npm](https://img.shields.io/npm/dm/react-native-toast-banner.svg)](https://www.npmjs.com/package/react-native-toast-banner)
+
 An animating banner fully based on Javascript
 
 <img src="https://github.com/benevbright/react-native-toast-banner/blob/master/docs/demo.gif?raw=true">
