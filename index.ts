@@ -1,1 +1,1 @@
-export * from "./src/toast-banner-container";
+export * from './src/toast-banner-container';
