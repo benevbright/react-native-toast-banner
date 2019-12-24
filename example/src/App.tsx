@@ -7,6 +7,7 @@ import {
   ToastBannerProvider,
   ToastBannerPresenter,
   useToastBannerToggler,
+  Transition,
 } from 'react-native-toast-banner';
 import {RegularBanner, BigBanner, Toast} from './banners';
 
@@ -29,6 +30,7 @@ const bannersList = [
     buttonTitle: 'Toast',
     bannerConfig: {
       contentView: <Toast />,
+      transitions: [Transition.FadeInOut],
     },
   },
 ];
