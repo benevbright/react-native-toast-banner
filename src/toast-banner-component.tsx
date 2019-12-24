@@ -36,24 +36,30 @@ type Props = {
   transitions: Transition[];
 };
 
-class ToastBanner extends React.Component<Props> {
+type State = {
+  contentHeight: number;
+};
+
+class ToastBanner extends React.Component<Props, State> {
+  state = {contentHeight: 0};
+
   componentWillUnmount() {
     this.isBannerMounted = false;
   }
 
   isBannerMounted: boolean = true;
   animation = new Animated.Value(-10);
-  contentHeight: number = 0;
 
   handleLayout = ({
     nativeEvent: {
       layout: {height},
     },
   }) => {
-    if (height !== 0 && this.contentHeight === 0) {
-      this.contentHeight = height;
-      this.animation.setValue(0);
-      this.show();
+    if (height !== 0 && this.state.contentHeight === 0) {
+      this.setState({contentHeight: height}, () => {
+        this.animation.setValue(0);
+        this.show();
+      });
     }
   };
 
@@ -78,7 +84,6 @@ class ToastBanner extends React.Component<Props> {
       duration: 200,
       toValue: 0,
       useNativeDriver: true,
-      easing: Easing.elastic(1),
     }).start(() => this.props.onPostHide(this.isBannerMounted));
   };
 
@@ -90,7 +95,7 @@ class ToastBanner extends React.Component<Props> {
       outputRange: [
         -1000,
         transitions.includes(Transition.Move)
-          ? -(this.contentHeight + HEIGHT_NOTCH_SAFE)
+          ? -(this.state.contentHeight + HEIGHT_NOTCH_SAFE)
           : 0,
         0,
       ],
