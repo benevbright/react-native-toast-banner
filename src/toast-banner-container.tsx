@@ -1,12 +1,14 @@
 import React, {useState, useRef, useContext} from 'react';
 
 import {ToastBanner} from './toast-banner-component';
+import {Transition} from './types';
 
 type BannerConfig = {
   onPress?: Function;
   duration?: number;
   contentView: React.ReactNode;
   backgroundColor?: string;
+  transitions?: Transition[];
 };
 type BannerConfigWithKey = BannerConfig & {key: string | null};
 
@@ -67,6 +69,7 @@ const ToastBannerPresenter = () => {
           bannerConfig.key && (
             <ToastBanner
               {...bannerConfig}
+              transitions={bannerConfig.transitions || [Transition.Move]}
               ref={banner}
               onPress={handlePress}
               onPostHide={removeBanner}
