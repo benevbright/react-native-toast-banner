@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useRef, useContext} from 'react';
 
 import {ToastBanner} from './toast-banner-component';
 
@@ -25,7 +25,7 @@ type Props = {
 
 const ToastBannerProvider = ({children}: Props) => {
   // @ts-ignore
-  const [bannerConfig, setBannerConfig] = React.useState<BannerConfigWithKey>({
+  const [bannerConfig, setBannerConfig] = useState<BannerConfigWithKey>({
     key: null,
   });
 
@@ -53,7 +53,7 @@ const ToastBannerProvider = ({children}: Props) => {
 };
 
 const ToastBannerPresenter = () => {
-  const banner = React.useRef(null);
+  const banner = useRef(null);
 
   return (
     <ToastBannerContext.Consumer>
@@ -78,6 +78,16 @@ const ToastBannerPresenter = () => {
   );
 };
 
+export type WithToastBannerTogglerProps = Pick<
+  ToastBannerContextType,
+  'showBanner'
+>;
+
+const useToastBannerToggler = (): WithToastBannerTogglerProps => {
+  const {showBanner} = useContext(ToastBannerContext);
+  return {showBanner};
+};
+
 const withToastBannerToggler = (WrappedComponent: any) => (props: any) => (
   <ToastBannerContext.Consumer>
     {({showBanner}: ToastBannerContextType) => (
@@ -86,8 +96,9 @@ const withToastBannerToggler = (WrappedComponent: any) => (props: any) => (
   </ToastBannerContext.Consumer>
 );
 
-export type WithToastBannerTogglerProps = Pick<
-  ToastBannerContextType,
-  'showBanner'
->;
-export {ToastBannerProvider, ToastBannerPresenter, withToastBannerToggler};
+export {
+  ToastBannerProvider,
+  ToastBannerPresenter,
+  useToastBannerToggler,
+  withToastBannerToggler,
+};
