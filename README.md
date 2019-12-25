@@ -45,9 +45,9 @@ const App = () => (
 
 See [/example](https://github.com/benevbright/react-native-toast-banner/tree/master/example/src)
 
-### Expo
+### Expo on Android
 
-Set the height of status bar.
+If your Expo app is using a translucent status-bar, please let the module know the height of the status-bar.
 
 ```js
 import { StatusBar } from 'react-native';
