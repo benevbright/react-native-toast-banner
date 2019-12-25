@@ -16,6 +16,13 @@ const DEFAULT_NAV_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
 const HEIGHT_NOTCH_SAFE = 100;
 const DEFAULT_DURATION = 3000;
 
+let expoPaddingTop: number = 0;
+const setExpoAndroidPaddingTop = (paddingTop: number) => {
+  if (Platform.OS === 'android') {
+    expoPaddingTop = paddingTop;
+  }
+};
+
 type NotchSafeDummyViewProps = {
   bannerHeight: number;
   color: string;
@@ -116,6 +123,7 @@ class ToastBanner extends React.Component<Props, State> {
         style={{
           position: 'absolute',
           width: '100%',
+          paddingTop: expoPaddingTop,
         }}>
         <Animated.View
           style={{
@@ -145,4 +153,4 @@ class ToastBanner extends React.Component<Props, State> {
   }
 }
 
-export { ToastBanner };
+export { ToastBanner, setExpoAndroidPaddingTop };
