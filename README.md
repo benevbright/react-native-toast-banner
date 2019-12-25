@@ -45,6 +45,17 @@ const App = () => (
 
 See [/example](https://github.com/benevbright/react-native-toast-banner/tree/master/example/src)
 
+### Expo
+
+Set the height of status bar.
+
+```js
+import { StatusBar } from 'react-native';
+import { setExpoAndroidPaddingTop } from 'react-native-toast-banner';
+
+setExpoAndroidPaddingTop(StatusBar.currentHeight);
+```
+
 ## Install
 
 ```bash

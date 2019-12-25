@@ -5,6 +5,7 @@ import {
   withToastBannerToggler,
   WithToastBannerTogglerProps,
 } from './src/toast-banner-container';
+import { setExpoAndroidPaddingTop } from './src/toast-banner-component';
 import { Transition } from './src/types';
 
 export {
@@ -14,4 +15,5 @@ export {
   withToastBannerToggler,
   WithToastBannerTogglerProps,
   Transition,
+  setExpoAndroidPaddingTop,
 };
