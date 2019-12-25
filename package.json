@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "run-prettier": "prettier --write package.json README.md index.ts src/*",
-    "flowgen": "flowgen lib/index.d.ts -o lib/index.js.flow && flowgen lib/src/toast-banner-component.d.ts -o lib/src/toast-banner-component.js.flow && flowgen lib/src/toast-banner-container.d.ts -o lib/src/toast-banner-container.js.flow",
+    "flowgen": "sh flow.sh",
     "build": "tsc && yarn flowgen",
     "build-publish": "rm -rf lib && yarn build && yarn publish"
   },
