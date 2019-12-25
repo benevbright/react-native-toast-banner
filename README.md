@@ -15,8 +15,8 @@ import {
   ToastBannerProvider,
   ToastBannerPresenter,
   useToastBannerToggler /* or withToastBannerToggler */,
-  Transition
-} from "react-native-toast-banner";
+  Transition,
+} from 'react-native-toast-banner';
 
 const MyScreen = () => {
   /* you can also use HoC, 'withToastBannerToggler' */
@@ -25,9 +25,9 @@ const MyScreen = () => {
   const onPress = () => {
     showBanner({
       contentView: <Text>Hello the regular banner!</Text>,
-      backgroundColor: "red" /* optional */,
+      backgroundColor: 'red' /* optional */,
       duration: 2000 /* optional */,
-      transitions: [Transition.Move, Transition.FadeInOut] /* optional */
+      transitions: [Transition.Move, Transition.FadeInOut] /* optional */,
     });
   };
   return <Text onPress={onPress}>Show Banner</Text>;

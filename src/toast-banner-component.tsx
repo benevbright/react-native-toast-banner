@@ -1,10 +1,16 @@
 // @flow
 
 import React from 'react';
-import {View, Platform, TouchableOpacity, Animated, Easing} from 'react-native';
+import {
+  View,
+  Platform,
+  TouchableOpacity,
+  Animated,
+  Easing,
+} from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 
-import {Transition} from './types';
+import { Transition } from './types';
 
 const DEFAULT_NAV_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
 const HEIGHT_NOTCH_SAFE = 100;
@@ -15,7 +21,7 @@ type NotchSafeDummyViewProps = {
   color: string;
 };
 
-const NotchSafeDummyView = ({color}: NotchSafeDummyViewProps) => (
+const NotchSafeDummyView = ({ color }: NotchSafeDummyViewProps) => (
   <View
     style={{
       position: 'absolute',
@@ -41,7 +47,7 @@ type State = {
 };
 
 class ToastBanner extends React.Component<Props, State> {
-  state = {contentHeight: 0};
+  state = { contentHeight: 0 };
 
   componentWillUnmount() {
     this.isBannerMounted = false;
@@ -52,11 +58,11 @@ class ToastBanner extends React.Component<Props, State> {
 
   handleLayout = ({
     nativeEvent: {
-      layout: {height},
+      layout: { height },
     },
   }) => {
     if (height !== 0 && this.state.contentHeight === 0) {
-      this.setState({contentHeight: height}, () => {
+      this.setState({ contentHeight: height }, () => {
         this.animation.setValue(0);
         this.show();
       });
@@ -74,7 +80,7 @@ class ToastBanner extends React.Component<Props, State> {
         this.hide,
         this.props.duration === undefined
           ? DEFAULT_DURATION
-          : this.props.duration,
+          : this.props.duration
       );
     });
   };
@@ -88,7 +94,7 @@ class ToastBanner extends React.Component<Props, State> {
   };
 
   render() {
-    const {onPress, contentView, backgroundColor, transitions} = this.props;
+    const { onPress, contentView, backgroundColor, transitions } = this.props;
 
     const translateY = this.animation.interpolate({
       inputRange: [-1, 0, 1],
@@ -115,21 +121,21 @@ class ToastBanner extends React.Component<Props, State> {
           style={{
             width: '100%',
             minHeight: DEFAULT_NAV_HEIGHT,
-            transform: [{translateY}],
+            transform: [{ translateY }],
             opacity,
             backgroundColor,
           }}>
           <TouchableOpacity
             activeOpacity={1}
             onPress={onPress}
-            style={{width: '100%', height: '100%'}}>
+            style={{ width: '100%', height: '100%' }}>
             <NotchSafeDummyView
               bannerHeight={DEFAULT_NAV_HEIGHT}
               color={backgroundColor}
             />
             <View
               onLayout={this.handleLayout}
-              style={{flex: 1, justifyContent: 'center'}}>
+              style={{ flex: 1, justifyContent: 'center' }}>
               {contentView}
             </View>
           </TouchableOpacity>
@@ -139,4 +145,4 @@ class ToastBanner extends React.Component<Props, State> {
   }
 }
 
-export {ToastBanner};
+export { ToastBanner };

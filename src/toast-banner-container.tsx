@@ -1,7 +1,7 @@
-import React, {useState, useRef, useContext} from 'react';
+import React, { useState, useRef, useContext } from 'react';
 
-import {ToastBanner} from './toast-banner-component';
-import {Transition} from './types';
+import { ToastBanner } from './toast-banner-component';
+import { Transition } from './types';
 
 type BannerConfig = {
   onPress?: Function;
@@ -10,7 +10,7 @@ type BannerConfig = {
   backgroundColor?: string;
   transitions?: Transition[];
 };
-type BannerConfigWithKey = BannerConfig & {key: string | null};
+type BannerConfigWithKey = BannerConfig & { key: string | null };
 
 type ToastBannerContextType = {
   showBanner: (configArg: BannerConfig) => void;
@@ -25,7 +25,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const ToastBannerProvider = ({children}: Props) => {
+const ToastBannerProvider = ({ children }: Props) => {
   // @ts-ignore
   const [bannerConfig, setBannerConfig] = useState<BannerConfigWithKey>({
     key: null,
@@ -48,7 +48,7 @@ const ToastBannerProvider = ({children}: Props) => {
 
   return (
     <ToastBannerContext.Provider
-      value={{showBanner, removeBanner, bannerConfig}}>
+      value={{ showBanner, removeBanner, bannerConfig }}>
       {children}
     </ToastBannerContext.Provider>
   );
@@ -59,7 +59,7 @@ const ToastBannerPresenter = () => {
 
   return (
     <ToastBannerContext.Consumer>
-      {({bannerConfig, removeBanner}: ToastBannerContextType) => {
+      {({ bannerConfig, removeBanner }: ToastBannerContextType) => {
         const handlePress = () => {
           if (banner.current) banner.current.hide();
           if (bannerConfig.onPress) bannerConfig.onPress();
@@ -87,13 +87,13 @@ export type WithToastBannerTogglerProps = Pick<
 >;
 
 const useToastBannerToggler = (): WithToastBannerTogglerProps => {
-  const {showBanner} = useContext(ToastBannerContext);
-  return {showBanner};
+  const { showBanner } = useContext(ToastBannerContext);
+  return { showBanner };
 };
 
 const withToastBannerToggler = (WrappedComponent: any) => (props: any) => (
   <ToastBannerContext.Consumer>
-    {({showBanner}: ToastBannerContextType) => (
+    {({ showBanner }: ToastBannerContextType) => (
       <WrappedComponent {...props} showBanner={showBanner} />
     )}
   </ToastBannerContext.Consumer>

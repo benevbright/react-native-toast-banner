@@ -5,7 +5,7 @@ import {
   withToastBannerToggler,
   WithToastBannerTogglerProps,
 } from './src/toast-banner-container';
-import {Transition} from './src/types';
+import { Transition } from './src/types';
 
 export {
   ToastBannerProvider,

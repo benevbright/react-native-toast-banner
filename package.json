@@ -22,7 +22,7 @@
   "scripts": {
     "build": "tsc",
     "build-publish": "rm -rf lib && yarn build && yarn publish",
-    "run-prettier": "prettier --write package.json index.ts src/*"
+    "run-prettier": "prettier --write package.json README.md index.ts src/*"
   },
   "peerDependencies": {
     "react": ">=16.8",
