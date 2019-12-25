@@ -6,6 +6,8 @@ An animating banner fully based on Javascript
 
 <img src="https://github.com/benevbright/react-native-toast-banner/blob/master/docs/demo.gif?raw=true">
 
+Try out on [Expo Snack](https://snack.expo.io/@benevbright/react-native-toast-banner)
+
 ## Usage
 
 ```js
@@ -13,19 +15,19 @@ import {
   ToastBannerProvider,
   ToastBannerPresenter,
   useToastBannerToggler /* or withToastBannerToggler */,
-  Transition,
-} from 'react-native-toast-banner';
+  Transition
+} from "react-native-toast-banner";
 
 const MyScreen = () => {
   /* you can also use HoC, 'withToastBannerToggler' */
-  const {showBanner} = useToastBannerToggler();
+  const { showBanner } = useToastBannerToggler();
 
   const onPress = () => {
     showBanner({
       contentView: <Text>Hello the regular banner!</Text>,
-      backgroundColor: 'red' /* optional */,
+      backgroundColor: "red" /* optional */,
       duration: 2000 /* optional */,
-      transitions: [Transition.Move, Transition.FadeInOut] /* optional */,
+      transitions: [Transition.Move, Transition.FadeInOut] /* optional */
     });
   };
   return <Text onPress={onPress}>Show Banner</Text>;
