@@ -28,6 +28,9 @@ const MyScreen = () => {
       backgroundColor: 'red' /* optional */,
       duration: 2000 /* optional */,
       transitions: [Transition.Move, Transition.FadeInOut] /* optional */,
+      onPress: () => {
+        console.log('banner pressed');
+      } /* optional */,
     });
   };
   return <Text onPress={onPress}>Show Banner</Text>;

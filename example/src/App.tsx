@@ -17,6 +17,9 @@ const bannersList = [
     bannerConfig: {
       contentView: <RegularBanner />,
       backgroundColor: 'red',
+      onPress: () => {
+        console.log('banner pressed');
+      },
     },
   },
   {
@@ -30,6 +33,7 @@ const bannersList = [
     buttonTitle: 'Toast',
     bannerConfig: {
       contentView: <Toast />,
+      duration: 2000,
       transitions: [Transition.FadeInOut],
     },
   },
