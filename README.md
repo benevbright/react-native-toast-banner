@@ -58,4 +58,15 @@ yarn add react-native-toast-banner
 
 PR is welcome!
 
-Tip for development: Just remove `example/node_modules/react-native-toast-banner` and do `git clone {forked-repo}` again in the `/example/node_modules`. Sounds weird. But with this way, Metro won't complain about it. I tried many things such as [Adding an example app to your React Native library](https://callstack.com/blog/adding-an-example-app-to-your-react-native-library/) and yarn-workspaces, but couldn't get it to work.
+### Testing your code with the example
+
+Just remove `example/node_modules/react-native-toast-banner` and do `git clone {forked-repo}` again in the `/example/node_modules`. Sounds weird. But with this way, Metro won't complain about it.
+
+Use below command as a shortcut :)
+
+```bash
+make clone-in-node-modules
+cd example/node_modules/react-native-toast-banner
+```
+
+I tried many things such as [Adding an example app to your React Native library](https://callstack.com/blog/adding-an-example-app-to-your-react-native-library/) and yarn-workspaces, but couldn't get it to work.

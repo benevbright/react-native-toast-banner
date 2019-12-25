@@ -8,9 +8,14 @@ update-example-rn:
 	rm example/App.tsx
 	sed -i '' "s/import App from '.\/App';/import App from '.\/src\/App';/" example/index.js
 	# install react-navigation
-	sh -c 'cd example && yarn add react-navigation react-native-reanimated react-native-gesture-handler react-navigation-stack react-navigation-tabs'
+	cd example && yarn add react-navigation react-native-reanimated react-native-gesture-handler react-navigation-stack react-navigation-tabs
 	# install peer-dependencies
-	sh -c 'cd example && yarn add react-native-safe-area-view react-native-safe-area-context'
+	cd example && yarn add react-native-safe-area-view react-native-safe-area-context
 	# install react-native-toast-banner
-	sh -c 'cd example && yarn add react-native-toast-banner'
-	sh -c 'cd example && cd ios && pod install'
+	cd example && yarn add react-native-toast-banner
+	cd example && cd ios && pod install
+
+clone-in-node-modules:
+	rm -rf example/node_modules/react-native-toast-banner
+	cd example/node_modules/ && git remote get-url origin | grep git | xargs git clone
+	cd example/node_modules/react-native-toast-banner && yarn && yarn build
