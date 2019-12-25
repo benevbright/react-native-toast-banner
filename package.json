@@ -16,13 +16,15 @@
     "notification"
   ],
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
     "lib"
   ],
   "scripts": {
-    "build": "tsc",
-    "build-publish": "rm -rf lib && yarn build && yarn publish",
-    "run-prettier": "prettier --write package.json README.md index.ts src/*"
+    "run-prettier": "prettier --write package.json README.md index.ts src/*",
+    "flowgen": "sh flow.sh",
+    "build": "tsc && yarn flowgen",
+    "build-publish": "rm -rf lib && yarn build && yarn publish"
   },
   "peerDependencies": {
     "react": ">=16.8",
@@ -34,6 +36,7 @@
   "devDependencies": {
     "@types/react": "^16.9.17",
     "@types/react-native": "^0.60.25",
+    "flowgen": "^1.10.0",
     "prettier": "^1.19.1",
     "react-native-safe-area-view": "^1.0.0",
     "typescript": "^3.7.4"
