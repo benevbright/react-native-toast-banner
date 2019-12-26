@@ -19,7 +19,7 @@ import {
 } from 'react-native-toast-banner';
 
 const MyScreen = () => {
-  /* you can also use HoC, 'withToastBannerToggler' */
+  /* If you don't want hooks, there is also HOC 'withToastBannerToggler' */
   const { showBanner } = useToastBannerToggler();
 
   const onPress = () => {
