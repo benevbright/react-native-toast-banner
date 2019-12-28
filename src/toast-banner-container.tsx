@@ -6,7 +6,7 @@ import { Transition } from './types';
 type BannerConfig = {
   onPress?: Function;
   duration?: number;
-  contentView: React.ReactNode;
+  contentView: React.ReactNode | null;
   backgroundColor?: string;
   transitions?: Transition[];
 };
@@ -18,17 +18,25 @@ type ToastBannerContextType = {
   bannerConfig: BannerConfigWithKey;
 };
 
-// @ts-ignore
-const ToastBannerContext = React.createContext<ToastBannerContextType>({});
+const ToastBannerContext = React.createContext<ToastBannerContextType>({
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  showBanner: () => {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  removeBanner: () => {},
+  bannerConfig: {
+    key: null,
+    contentView: null,
+  },
+});
 
 type Props = {
   children: React.ReactNode;
 };
 
 const ToastBannerProvider = ({ children }: Props) => {
-  // @ts-ignore
   const [bannerConfig, setBannerConfig] = useState<BannerConfigWithKey>({
     key: null,
+    contentView: null,
   });
 
   const showBanner = (configArg: BannerConfig) => {
@@ -42,6 +50,7 @@ const ToastBannerProvider = ({ children }: Props) => {
     if (isMounted) {
       setBannerConfig({
         key: null,
+        contentView: null,
       });
     }
   };
@@ -81,17 +90,18 @@ const ToastBannerPresenter = () => {
   );
 };
 
-export type WithToastBannerTogglerProps = Pick<
-  ToastBannerContextType,
-  'showBanner'
->;
+export interface WithToastBannerTogglerProps {
+  showBanner: (configArg: BannerConfig) => void;
+}
 
 const useToastBannerToggler = (): WithToastBannerTogglerProps => {
   const { showBanner } = useContext(ToastBannerContext);
   return { showBanner };
 };
 
-const withToastBannerToggler = (WrappedComponent: any) => (props: any) => (
+const withToastBannerToggler = <P,>(
+  WrappedComponent: React.ComponentType<P>
+) => (props: P & WithToastBannerTogglerProps) => (
   <ToastBannerContext.Consumer>
     {({ showBanner }: ToastBannerContextType) => (
       <WrappedComponent {...props} showBanner={showBanner} />
