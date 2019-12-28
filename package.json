@@ -1,6 +1,6 @@
 {
   "name": "react-native-toast-banner",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "An animating banner fully based on Javascript",
   "author": "Bright Lee",
   "license": "ISC",
@@ -26,7 +26,7 @@
     "lint": "eslint --ext '.js,.ts,.tsx' ./src index.ts",
     "build": "tsc && yarn flowgen",
     "clean": "rm -rf lib",
-    "publish": "yarn clean && yarn build && publish"
+    "build-publish": "yarn clean && yarn lint && yarn build && yarn publish"
   },
   "peerDependencies": {
     "react": ">=16.8",
