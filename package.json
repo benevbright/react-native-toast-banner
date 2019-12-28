@@ -26,7 +26,7 @@
     "lint": "eslint --ext '.js,.ts,.tsx' ./src index.ts",
     "build": "tsc && yarn flowgen",
     "clean": "rm -rf lib",
-    "pre-publish": "yarn clean && yarn build"
+    "publish": "yarn clean && yarn build && publish"
   },
   "peerDependencies": {
     "react": ">=16.8",

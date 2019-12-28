@@ -1,12 +1,10 @@
 update-example-rn:
 	mkdir tmp
-	cp -r example/src tmp
+	cp -r example/src example/App.tsx tmp
 	rm -rf example
 	npx react-native init example --template react-native-template-typescript
-	cp -r tmp/src example
+	cp -r tmp/* example
 	rm -rf tmp
-	rm example/App.tsx
-	sed -i '' "s/import App from '.\/App';/import App from '.\/src\/App';/" example/index.js
 	# install react-navigation
 	cd example && yarn add react-navigation react-native-reanimated react-native-gesture-handler react-navigation-stack react-navigation-tabs
 	# install peer-dependencies

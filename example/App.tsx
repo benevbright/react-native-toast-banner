@@ -9,7 +9,7 @@ import {
   useToastBannerToggler,
   Transition,
 } from 'react-native-toast-banner';
-import {RegularBanner, BigBanner, Toast} from './my-banners';
+import {RegularBanner, BigBanner, Toast} from './src/my-banners';
 
 const bannersList = [
   {
