@@ -6,7 +6,7 @@ An animating banner fully based on Javascript
 
 <img src="https://github.com/benevbright/react-native-toast-banner/blob/master/docs/demo.gif?raw=true">
 
-Try out on [Expo Snack](https://snack.expo.io/@benevbright/react-native-toast-banner)
+Try out o n [Expo Snack](https://snack.expo.io/@benevbright/react-native-toast-banner)
 
 ## Usage
 
