@@ -16,7 +16,7 @@ const DEFAULT_NAV_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
 const HEIGHT_NOTCH_SAFE = 100;
 const DEFAULT_DURATION = 3000;
 
-let expoPaddingTop: number = 0;
+let expoPaddingTop = 0;
 const setExpoAndroidPaddingTop = (paddingTop: number) => {
   if (Platform.OS === 'android') {
     expoPaddingTop = paddingTop;
@@ -60,7 +60,7 @@ class ToastBanner extends React.Component<Props, State> {
     this.isBannerMounted = false;
   }
 
-  isBannerMounted: boolean = true;
+  isBannerMounted = true;
   animation = new Animated.Value(-10);
 
   handleLayout = ({

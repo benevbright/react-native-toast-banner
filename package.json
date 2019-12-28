@@ -21,10 +21,12 @@
     "lib"
   ],
   "scripts": {
-    "run-prettier": "prettier --write package.json README.md index.ts src/*",
+    "prettier": "prettier --write src/* index.ts README.md",
     "flowgen": "sh flow.sh",
+    "lint": "eslint --ext '.js,.ts,.tsx' ./src index.ts",
     "build": "tsc && yarn flowgen",
-    "build-publish": "rm -rf lib && yarn build && yarn publish"
+    "clean": "rm -rf lib",
+    "pre-publish": "yarn clean && yarn build"
   },
   "peerDependencies": {
     "react": ">=16.8",
@@ -36,6 +38,12 @@
   "devDependencies": {
     "@types/react": "^16.9.17",
     "@types/react-native": "^0.60.25",
+    "@typescript-eslint/eslint-plugin": "^2.13.0",
+    "@typescript-eslint/parser": "^2.13.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
     "flowgen": "^1.10.0",
     "prettier": "^1.19.1",
     "react-native-safe-area-view": "^1.0.0",
