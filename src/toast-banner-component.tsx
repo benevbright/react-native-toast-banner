@@ -43,7 +43,7 @@ const NotchSafeDummyView = ({ color }: NotchSafeDummyViewProps) => (
 type Props = {
   onPress: () => void;
   onPostHide: (isMounted: boolean) => void;
-  duration?: number;
+  duration: number;
   contentView: React.ReactNode;
   backgroundColor?: string;
   transitions: Transition[];
@@ -54,6 +54,11 @@ type State = {
 };
 
 class ToastBanner extends React.Component<Props, State> {
+  static defaultProps = {
+    duration: DEFAULT_DURATION,
+    transitions: [Transition.Move],
+  };
+
   state = { contentHeight: 0 };
 
   componentWillUnmount() {

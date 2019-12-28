@@ -78,7 +78,7 @@ const ToastBannerPresenter = () => {
           bannerConfig.key && (
             <ToastBanner
               {...bannerConfig}
-              transitions={bannerConfig.transitions || [Transition.Move]}
+              transitions={bannerConfig.transitions}
               ref={banner}
               onPress={handlePress}
               onPostHide={removeBanner}
