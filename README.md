@@ -48,7 +48,7 @@ const App = () => (
 );
 ```
 
-See [/example](https://github.com/benevbright/react-native-toast-banner/tree/master/example/App.tsc)
+See [/example/App.tsx](https://github.com/benevbright/react-native-toast-banner/tree/master/example/App.tsx) and [/example/src/my-banners.tsx](https://github.com/benevbright/react-native-toast-banner/tree/master/example/src/my-banners.tsx)
 
 ### Expo on Android
 
