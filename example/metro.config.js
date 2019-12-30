@@ -1,11 +1,13 @@
-/**
- * Metro configuration for React Native
- * https://github.com/facebook/react-native
- *
- * @format
- */
+const extraModules = [
+  '@babel/runtime',
+  'react',
+  'react-native',
+  'react-native-safe-area-view',
+  'react-native-safe-area-context',
+];
 
 module.exports = {
+  watchFolders: ['..'],
   transformer: {
     getTransformOptions: async () => ({
       transform: {
@@ -13,5 +15,14 @@ module.exports = {
         inlineRequires: false,
       },
     }),
+  },
+  resolver: {
+    extraNodeModules: extraModules.reduce(
+      (prev, current) => ({
+        ...prev,
+        [current]: `${__dirname}/node_modules/${current}`,
+      }),
+      {},
+    ),
   },
 };
