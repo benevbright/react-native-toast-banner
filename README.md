@@ -76,7 +76,7 @@ PR is welcome!
 
 ### Testing your library code with the example
 
-Turn the watch option at the root folder
+Turn the watch option on at the root folder
 
 ```bash
 yarn tsc -w
