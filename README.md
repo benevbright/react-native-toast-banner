@@ -76,7 +76,8 @@ PR is welcome!
 
 ### Testing your library code with the example
 
-Turn the watch option on at the root folder
+[/example](https://github.com/benevbright/react-native-toast-banner/tree/master/example) imports the library directly from the root folder, configured with [babel-plugin-module-resolver](https://github.com/benevbright/react-native-toast-banner/blob/53e29e86796bfa45aef39d9be28e47f3437247aa/example/babel.config.js#L8).
+So, just turn the `watch` option on at the root folder while you're making changes on the library, and see them on the example.
 
 ```bash
 yarn tsc -w
