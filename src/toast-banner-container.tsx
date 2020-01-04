@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { ToastBanner } from './toast-banner-component';
 import { Transition } from './types';
@@ -82,36 +82,33 @@ const ToastBannerProvider = ({ children }: Props) => {
   );
 };
 
-const ToastBannerPresenter = () => {
-  const banner = useRef(null);
+const ToastBannerPresenter = () => (
+  <ToastBannerContext.Consumer>
+    {({
+      bannerConfig,
+      hideBanner,
+      removeBanner,
+      hideRequested,
+    }: ToastBannerContextType) => {
+      const handlePress = () => {
+        if (bannerConfig.onPress) bannerConfig.onPress();
+        else hideBanner();
+      };
 
-  return (
-    <ToastBannerContext.Consumer>
-      {({
-        bannerConfig,
-        removeBanner,
-        hideRequested,
-      }: ToastBannerContextType) => {
-        const handlePress = () => {
-          if (bannerConfig.onPress) bannerConfig.onPress();
-        };
-
-        return (
-          bannerConfig.key && (
-            <ToastBanner
-              {...bannerConfig}
-              transitions={bannerConfig.transitions}
-              ref={banner}
-              onPress={handlePress}
-              onPostHide={removeBanner}
-              hideRequested={hideRequested}
-            />
-          )
-        );
-      }}
-    </ToastBannerContext.Consumer>
-  );
-};
+      return (
+        bannerConfig.key && (
+          <ToastBanner
+            {...bannerConfig}
+            transitions={bannerConfig.transitions}
+            onPress={handlePress}
+            onPostHide={removeBanner}
+            hideRequested={hideRequested}
+          />
+        )
+      );
+    }}
+  </ToastBannerContext.Consumer>
+);
 
 export interface WithToastBannerTogglerProps {
   showBanner: (configArg: BannerConfig) => void;
