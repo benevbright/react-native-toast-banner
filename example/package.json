@@ -16,7 +16,6 @@
     "react-native-reanimated": "^1.4.0",
     "react-native-safe-area-context": "^0.6.1",
     "react-native-safe-area-view": "^1.0.0",
-    "react-native-toast-banner": "^0.5.6",
     "react-navigation": "^4.0.10",
     "react-navigation-stack": "^1.10.3",
     "react-navigation-tabs": "^2.6.2"
@@ -26,7 +25,6 @@
     "@babel/runtime": "^7.6.2",
     "@react-native-community/eslint-config": "^0.0.5",
     "@types/jest": "^24.0.24",
-    "@types/react-native": "^0.60.25",
     "@types/react-test-renderer": "16.9.1",
     "@typescript-eslint/eslint-plugin": "^2.12.0",
     "@typescript-eslint/parser": "^2.12.0",
