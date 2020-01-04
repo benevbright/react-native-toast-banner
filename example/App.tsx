@@ -11,7 +11,7 @@ import {
 } from 'react-native-toast-banner';
 import {RegularBanner, BigBanner, Toast} from './src/my-banners';
 
-const bannersList = [
+const bannersList = (hideBanner: () => void) => [
   {
     buttonTitle: 'Regular banner',
     bannerConfig: {
@@ -19,6 +19,7 @@ const bannersList = [
       backgroundColor: 'red',
       onPress: () => {
         console.log('banner pressed');
+        hideBanner();
       },
     },
   },
@@ -40,11 +41,11 @@ const bannersList = [
 ];
 
 const HomeScreen = () => {
-  const {showBanner} = useToastBannerToggler();
+  const {showBanner, hideBanner} = useToastBannerToggler();
 
   return (
     <View style={{flex: 1, alignItems: 'center', top: 100}}>
-      {bannersList.map((banner, i) => (
+      {bannersList(hideBanner).map((banner, i) => (
         <Text
           style={{marginVertical: 10}}
           key={i.toString()}

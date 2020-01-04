@@ -47,6 +47,7 @@ type Props = {
   contentView: React.ReactNode;
   backgroundColor?: string;
   transitions: Transition[];
+  hideRequested: boolean;
 };
 
 type State = {
@@ -63,6 +64,12 @@ class ToastBanner extends React.Component<Props, State> {
 
   componentWillUnmount() {
     this.isBannerMounted = false;
+  }
+
+  componentDidUpdate(prevProps: Props) {
+    if (!prevProps.hideRequested && this.props.hideRequested) {
+      this.hide();
+    }
   }
 
   isBannerMounted = true;

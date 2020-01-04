@@ -22,7 +22,7 @@ import {
 
 const MyScreen = () => {
   /* If you don't want hooks, there is also HOC 'withToastBannerToggler' */
-  const { showBanner } = useToastBannerToggler();
+  const { showBanner, hideBanner } = useToastBannerToggler();
 
   const onPress = () => {
     showBanner({
@@ -32,6 +32,7 @@ const MyScreen = () => {
       transitions: [Transition.Move, Transition.FadeInOut] /* optional */,
       onPress: () => {
         console.log('banner pressed');
+        hideBanner();
       } /* optional */,
     });
   };
