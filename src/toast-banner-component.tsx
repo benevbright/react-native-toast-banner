@@ -90,10 +90,12 @@ class ToastBanner extends React.Component<Props, State> {
 
   show = () => {
     Animated.timing(this.animation, {
-      duration: 300,
+      duration: this.props.transitions.includes(Transition.Move) ? 330 : 250,
       toValue: 1,
       useNativeDriver: true,
-      easing: Easing.elastic(1.1),
+      easing: this.props.transitions.includes(Transition.Move)
+        ? Easing.elastic(1.1)
+        : undefined,
     }).start(() => {
       setTimeout(
         this.hide,
@@ -119,6 +121,7 @@ class ToastBanner extends React.Component<Props, State> {
       inputRange: [-1, 0, 1],
       outputRange: [
         -1000,
+        transitions.includes(Transition.MoveLinear) ||
         transitions.includes(Transition.Move)
           ? -(this.state.contentHeight + HEIGHT_NOTCH_SAFE)
           : 0,

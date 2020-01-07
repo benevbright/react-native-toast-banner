@@ -28,6 +28,7 @@ const bannersList = (hideBanner: () => void) => [
     bannerConfig: {
       contentView: <BigBanner />,
       backgroundColor: 'blue',
+      transitions: [Transition.MoveLinear, Transition.FadeInOut],
     },
   },
   {
