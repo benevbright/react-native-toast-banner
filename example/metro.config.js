@@ -1,3 +1,5 @@
+const path = require('path');
+
 const extraModules = [
   '@babel/runtime',
   'react',
@@ -7,7 +9,7 @@ const extraModules = [
 ];
 
 module.exports = {
-  watchFolders: ['..'],
+  watchFolders: [path.resolve(__dirname, '..')],
   transformer: {
     getTransformOptions: async () => ({
       transform: {
