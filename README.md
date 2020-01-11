@@ -51,17 +51,6 @@ const App = () => (
 
 See [/example/App.tsx](https://github.com/benevbright/react-native-toast-banner/tree/master/example/App.tsx) and [/example/src/my-banners.tsx](https://github.com/benevbright/react-native-toast-banner/tree/master/example/src/my-banners.tsx)
 
-### Expo on Android
-
-If your Expo app is using a translucent status-bar, please let the module know the height of the status-bar.
-
-```js
-import { StatusBar } from 'react-native';
-import { setExpoAndroidPaddingTop } from 'react-native-toast-banner';
-
-setExpoAndroidPaddingTop(StatusBar.currentHeight);
-```
-
 ## Install
 
 ```bash

@@ -1,4 +1,4 @@
-// @flow
+/* global global */
 
 import React from 'react';
 import {
@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Animated,
   Easing,
+  StatusBar,
 } from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 
@@ -15,13 +16,6 @@ import { Transition } from './types';
 const DEFAULT_NAV_HEIGHT = Platform.OS === 'ios' ? 44 : 56;
 const HEIGHT_NOTCH_SAFE = 100;
 const DEFAULT_DURATION = 3000;
-
-let expoPaddingTop = 0;
-const setExpoAndroidPaddingTop = (paddingTop: number) => {
-  if (Platform.OS === 'android') {
-    expoPaddingTop = paddingTop;
-  }
-};
 
 type NotchSafeDummyViewProps = {
   bannerHeight: number;
@@ -133,6 +127,10 @@ class ToastBanner extends React.Component<Props, State> {
       outputRange: [0, transitions.includes(Transition.FadeInOut) ? 0 : 1, 1],
     });
 
+    const expoPaddingTop =
+      // @ts-ignore
+      Platform.OS === 'android' && global.Expo ? StatusBar.currentHeight : 0;
+
     return (
       <SafeAreaView
         style={{
@@ -168,4 +166,4 @@ class ToastBanner extends React.Component<Props, State> {
   }
 }
 
-export { ToastBanner, setExpoAndroidPaddingTop };
+export { ToastBanner };
