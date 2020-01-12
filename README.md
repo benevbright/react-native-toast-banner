@@ -29,11 +29,11 @@ const MyScreen = () => {
       contentView: <Text>Hello the regular banner!</Text>,
       backgroundColor: 'red' /* optional */,
       duration: 2000 /* optional */,
-      transitions: [Transition.Move, Transition.FadeInOut] /* optional */,
+      transitions: [Transition.Move, Transition.MoveLinear, Transition.FadeInOut] /* optional */,
       onPress: () => {
         console.log('banner pressed');
         hideBanner();
-      } /* optional */,
+      } /* optional. If you don't add 'onPress', the banner hides automatically on press. */,
     });
   };
   return <Text onPress={onPress}>Show Banner</Text>;
@@ -66,8 +66,8 @@ PR is welcome!
 
 ### Testing your library code with the example
 
-[/example](https://github.com/benevbright/react-native-toast-banner/tree/master/example) imports the library directly from the root folder, configured with [babel-plugin-module-resolver](https://github.com/benevbright/react-native-toast-banner/blob/53e29e86796bfa45aef39d9be28e47f3437247aa/example/babel.config.js#L8).
-So, just turn the `watch` option on at the root folder while you're making changes on the library, and see them on the example.
+[/example](https://github.com/benevbright/react-native-toast-banner/tree/master/example) imports the library directly from the root folder, configured with [babel-plugin-module-resolver](https://github.com/benevbright/react-native-toast-banner/tree/master/example/babel.config.js#L10).
+So, just turn the `watch` option on at the root folder while you're making changes on the library, and check them on the example.
 
 ```bash
 yarn tsc -w
