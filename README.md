@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/react-native-toast-banner.svg)](https://www.npmjs.com/package/react-native-toast-banner) [![npm](https://img.shields.io/npm/dm/react-native-toast-banner.svg)](https://www.npmjs.com/package/react-native-toast-banner)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![ci: github](https://github.com/benevbright/react-native-toast-banner/workflows/CI/badge.svg)](https://github.com/benevbright/react-native-toast-banner/actions?query=workflow%3ACI)
+[![ci: github](https://github.com/benevbright/react-native-toast-banner/workflows/CI/badge.svg)](https://github.com/benevbright/react-native-toast-banner/actions?query=workflow%3ACI) [![runs with expo](https://img.shields.io/badge/Runs%20with%20Expo-4630EB.svg?logo=EXPO&labelColor=f3f3f3&logoColor=000)](https://expo.io/)
 
 An animating banner fully based on Javascript
 
