@@ -9,6 +9,7 @@ type BannerConfig = {
   contentView: React.ReactNode | null;
   backgroundColor?: string;
   transitions?: Transition[];
+  disableHideOnPress?: boolean;
 };
 type BannerConfigWithKey = BannerConfig & {
   key: string | null;
@@ -92,7 +93,7 @@ const ToastBannerPresenter = () => (
     }: ToastBannerContextType) => {
       const handlePress = () => {
         if (bannerConfig.onPress) bannerConfig.onPress();
-        else hideBanner();
+        if (!bannerConfig.disableHideOnPress) hideBanner();
       };
 
       return (

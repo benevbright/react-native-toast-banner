@@ -27,13 +27,18 @@ const MyScreen = () => {
   const onPress = () => {
     showBanner({
       contentView: <Text>Hello the regular banner!</Text>,
-      backgroundColor: 'red' /* optional */,
-      duration: 2000 /* optional */,
-      transitions: [Transition.Move, Transition.MoveLinear, Transition.FadeInOut] /* optional */,
+      backgroundColor: 'red' /* default: undefined */,
+      duration: 2000 /* default: 3000 */,
+      transitions: [
+        Transition.Move,
+        Transition.MoveLinear,
+        Transition.FadeInOut,
+      ] /* default: [Transition.Move] */,
       onPress: () => {
         console.log('banner pressed');
-        hideBanner();
-      } /* optional. If you don't add 'onPress', the banner hides automatically on press. */,
+        // hideBanner(); // when specifying 'disableHideOnPress: true'
+      } /* default: undefined */,
+      disableHideOnPress: true /* default: undefined */,
     });
   };
   return <Text onPress={onPress}>Show Banner</Text>;

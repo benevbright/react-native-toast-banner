@@ -19,7 +19,6 @@ const bannersList = (hideBanner: () => void) => [
       backgroundColor: 'red',
       onPress: () => {
         console.log('banner pressed');
-        hideBanner();
       },
     },
   },
@@ -29,6 +28,11 @@ const bannersList = (hideBanner: () => void) => [
       contentView: <BigBanner />,
       backgroundColor: 'blue',
       transitions: [Transition.MoveLinear, Transition.FadeInOut],
+      disableHideOnPress: true,
+      onPress: () => {
+        console.log('banner pressed');
+        setTimeout(hideBanner, 500); // dismiss after delay
+      },
     },
   },
   {
