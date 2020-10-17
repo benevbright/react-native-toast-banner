@@ -6,7 +6,7 @@
 
 An animating banner fully based on Javascript
 
-<img src="https://github.com/benevbright/react-native-toast-banner/blob/master/docs/demo.gif?raw=true">
+<img src="docs/demo.gif?raw=true">
 
 Try out the demo on [Expo Snack](https://snack.expo.io/@benevbright/react-native-toast-banner)
 
@@ -54,7 +54,7 @@ const App = () => (
 );
 ```
 
-See [/example/App.tsx](https://github.com/benevbright/react-native-toast-banner/tree/master/example/App.tsx) and [/example/src/my-banners.tsx](https://github.com/benevbright/react-native-toast-banner/tree/master/example/src/my-banners.tsx)
+See [/example/App.tsx](example/App.tsx) and [/example/src/my-banners.tsx](example/src/my-banners.tsx)
 
 ## Install
 
@@ -71,7 +71,7 @@ PR is welcome!
 
 ### How to test changes with the example?
 
-[/example](https://github.com/benevbright/react-native-toast-banner/tree/master/example) imports the library directly from the root folder, configured with [babel-plugin-module-resolver](https://github.com/benevbright/react-native-toast-banner/tree/master/example/babel.config.js#L10).
+[/example](example) imports the library directly from the root folder, configured with [babel-plugin-module-resolver](example/babel.config.js#L10).
 So, just build the library with the `watch` option and run the example.
 
 ```bash
