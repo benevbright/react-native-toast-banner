@@ -11,5 +11,5 @@ update-example-rn:
 	# install react-navigation
 	cd example && yarn add react-navigation react-native-reanimated react-native-gesture-handler react-navigation-stack react-navigation-tabs
 	# install peer-dependencies
-	cd example && yarn add react-native-safe-area-view react-native-safe-area-context
+	cd example && yarn add react-native-safe-area-context
 	cd example && cd ios && pod install

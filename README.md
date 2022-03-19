@@ -59,8 +59,6 @@ See [/example/App.tsx](example/App.tsx) and [/example/src/my-banners.tsx](exampl
 ## Install
 
 ```bash
-# install peer dependencies
-yarn add react-native-safe-area-context react-native-safe-area-view
 # install module
 yarn add react-native-toast-banner
 ```
