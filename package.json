@@ -24,9 +24,9 @@
     "prettier": "prettier --write src/* index.ts README.md",
     "flowgen": "sh flow.sh",
     "lint": "eslint --ext '.js,.ts,.tsx' ./src index.ts",
-    "build": "tsc && yarn flowgen",
+    "build": "tsc",
     "clean": "rm -rf lib",
-    "build-publish": "yarn clean && yarn lint && yarn build && yarn publish"
+    "build-publish": "clean && lint && build && flowgen && publish"
   },
   "peerDependencies": {
     "react": ">=16.8",

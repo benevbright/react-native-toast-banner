@@ -9,8 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: install
-        run: yarn install
+        run: npm install
       - name: lint
-        run: yarn lint
+        run: npm run lint
       - name: build
-        run: yarn build
+        run: npm run build && npm run flowgen

@@ -13,6 +13,7 @@ Try out the demo on [Expo Snack](https://snack.expo.io/@benevbright/react-native
 ## Usage
 
 ```js
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import {
   ToastBannerProvider,
   ToastBannerPresenter,
@@ -59,8 +60,7 @@ See [/example/App.tsx](example/App.tsx) and [/example/src/my-banners.tsx](exampl
 ## Install
 
 ```bash
-# install module
-yarn add react-native-toast-banner
+npm install react-native-toast-banner
 ```
 
 ## Contribution
@@ -73,6 +73,6 @@ PR is welcome!
 So, just build the library with the `watch` option and run the example.
 
 ```bash
-yarn tsc -w
-cd example && yarn ios
+npm run build -- -w
+cd example && npm run ios
 ```
