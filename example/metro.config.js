@@ -4,7 +4,6 @@ const extraModules = [
   '@babel/runtime',
   'react',
   'react-native',
-  'react-native-safe-area-view',
   'react-native-safe-area-context',
 ];
 

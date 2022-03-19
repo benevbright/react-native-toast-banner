@@ -123,17 +123,20 @@ const useToastBannerToggler = (): WithToastBannerTogglerProps => {
 
 const withToastBannerToggler = <P,>(
   WrappedComponent: React.ComponentType<P>
-) => (props: P & WithToastBannerTogglerProps) => (
-  <ToastBannerContext.Consumer>
-    {({ showBanner, hideBanner }: ToastBannerContextType) => (
-      <WrappedComponent
-        {...props}
-        showBanner={showBanner}
-        hideBanner={hideBanner}
-      />
-    )}
-  </ToastBannerContext.Consumer>
-);
+) => {
+  const ComponentWithToastBanner = (props: P & WithToastBannerTogglerProps) => (
+    <ToastBannerContext.Consumer>
+      {({ showBanner, hideBanner }: ToastBannerContextType) => (
+        <WrappedComponent
+          {...props}
+          showBanner={showBanner}
+          hideBanner={hideBanner}
+        />
+      )}
+    </ToastBannerContext.Consumer>
+  );
+  return ComponentWithToastBanner;
+};
 
 export {
   ToastBannerProvider,

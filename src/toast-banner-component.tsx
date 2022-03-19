@@ -9,7 +9,7 @@ import {
   Easing,
   StatusBar,
 } from 'react-native';
-import SafeAreaView from 'react-native-safe-area-view';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Transition } from './types';
 

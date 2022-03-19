@@ -24,15 +24,14 @@
     "prettier": "prettier --write src/* index.ts README.md",
     "flowgen": "sh flow.sh",
     "lint": "eslint --ext '.js,.ts,.tsx' ./src index.ts",
-    "build": "tsc && yarn flowgen",
+    "build": "tsc",
     "clean": "rm -rf lib",
-    "build-publish": "yarn clean && yarn lint && yarn build && yarn publish"
+    "build-publish": "npm run clean && npm run lint && npm run build && npm run flowgen"
   },
   "peerDependencies": {
     "react": ">=16.8",
     "react-native": ">=0.59",
-    "react-native-safe-area-context": "*",
-    "react-native-safe-area-view": "*"
+    "react-native-safe-area-context": "*"
   },
   "dependencies": {},
   "devDependencies": {
@@ -46,7 +45,7 @@
     "eslint-plugin-react": "^7.17.0",
     "flowgen": "^1.10.0",
     "prettier": "^1.19.1",
-    "react-native-safe-area-view": "^1.0.0",
+    "react-native-safe-area-context": "^4.2.1",
     "typescript": "^3.7.4"
   }
 }
