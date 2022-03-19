@@ -26,7 +26,7 @@
     "lint": "eslint --ext '.js,.ts,.tsx' ./src index.ts",
     "build": "tsc",
     "clean": "rm -rf lib",
-    "build-publish": "npm run clean && npm run lint && npm run build && npm run flowgen"
+    "build-publish": "npm run clean && npm run lint && npm run build && npm run flowgen && npm publish"
   },
   "peerDependencies": {
     "react": ">=16.8",
